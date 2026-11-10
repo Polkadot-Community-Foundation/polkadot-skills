@@ -54,3 +54,7 @@ open an issue or pull request upstream.
 ## License
 
 Apache-2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
+
+## Privacy
+
+These skills collect no data. See [PRIVACY.md](PRIVACY.md).
