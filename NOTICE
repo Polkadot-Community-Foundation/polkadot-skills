@@ -1,0 +1,11 @@
+Polkadot Skills
+
+The skill folders listed in upstream.json are copied unchanged from paritytech/product-sdk
+(https://github.com/paritytech/product-sdk), at the release tag recorded there.
+Copyright 2026 Parity Technologies (UK) Ltd. Licensed under the Apache License, Version 2.0.
+
+Packaging files (manifests, scripts, workflows, README):
+Copyright 2026 Polkadot Community Foundation. Licensed under the Apache License, Version 2.0.
+
+The Polkadot logo in assets/ comes from https://polkadot.com/assets/logo/. It is a trademark and is not
+licensed under the Apache License.

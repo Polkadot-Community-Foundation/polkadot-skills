@@ -1,0 +1,20 @@
+{
+  "repository": "paritytech/product-sdk",
+  "tag": "@parity/product-sdk@0.44.0",
+  "commit": "a182639326d884a7a2a6909817da5656383cc316",
+  "path": "product-sdk/skills",
+  "version": "0.44.0",
+  "skills": [
+    "migrating-to-product-sdk",
+    "product-sdk-app-builder",
+    "product-sdk-chain-connection",
+    "product-sdk-cloud-storage",
+    "product-sdk-contracts",
+    "product-sdk-individuality",
+    "product-sdk-nfts",
+    "product-sdk-pocket-cards",
+    "product-sdk-statement-store",
+    "product-sdk-transactions",
+    "product-sdk-utilities"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "polkadot-skills",
+  "version": "0.44.0",
+  "description": "Agent skills for building Polkadot apps with @parity/product-sdk: chain connection, transactions, contracts, cloud storage, statement store, personhood, NFTs, Pocket cards, utilities, migration and app scaffolding.",
+  "author": {
+    "name": "Polkadot Community Foundation",
+    "url": "https://github.com/Polkadot-Community-Foundation"
+  },
+  "homepage": "https://docs.polkadotcommunity.foundation",
+  "repository": "https://github.com/Polkadot-Community-Foundation/polkadot-skills",
+  "license": "Apache-2.0",
+  "keywords": [
+    "polkadot",
+    "product-sdk",
+    "web3",
+    "dapp",
+    "smart-contracts",
+    "typescript",
+    "agent-skills"
+  ],
+  "icon": "./assets/icon.png"
+}

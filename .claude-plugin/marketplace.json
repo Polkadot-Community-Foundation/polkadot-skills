@@ -1,0 +1,22 @@
+{
+  "name": "polkadot-community-foundation",
+  "description": "Polkadot Community Foundation plugins for building on Polkadot.",
+  "owner": {
+    "name": "Polkadot Community Foundation",
+    "url": "https://github.com/Polkadot-Community-Foundation"
+  },
+  "plugins": [
+    {
+      "name": "polkadot-skills",
+      "source": "./",
+      "version": "0.44.0",
+      "description": "Agent skills for building Polkadot apps with @parity/product-sdk.",
+      "category": "development",
+      "keywords": [
+        "polkadot",
+        "product-sdk",
+        "web3"
+      ]
+    }
+  ]
+}

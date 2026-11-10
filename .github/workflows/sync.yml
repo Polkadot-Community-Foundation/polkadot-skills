@@ -1,0 +1,60 @@
+name: Sync skills from upstream
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Upstream tag, e.g. @parity/product-sdk@0.44.0 (default: newest)"
+        required: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Sync
+        env:
+          TAG: ${{ inputs.tag }}
+        run: scripts/sync.sh "$TAG"
+
+      - name: Check
+        run: scripts/check.sh
+
+      - name: Open a pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet && [ -z "$(git ls-files --others --exclude-standard)" ]; then
+            echo "Already up to date."
+            exit 0
+          fi
+          tag="$(jq -r .tag upstream.json)"
+          version="$(jq -r .version upstream.json)"
+          branch="sync/${version}"
+          if git ls-remote --exit-code --heads origin "$branch" > /dev/null; then
+            echo "Branch $branch already exists."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add -A
+          git commit -m "chore: sync skills from ${tag}"
+          git push origin "$branch"
+          gh pr create \
+            --base main \
+            --head "$branch" \
+            --title "chore: sync skills from ${tag}" \
+            --body "Copies \`product-sdk/skills\` from [\`${tag}\`](https://github.com/paritytech/product-sdk/releases/tag/${tag}) unchanged and sets every manifest to version ${version}. \`scripts/check.sh\` passed in the sync job."
