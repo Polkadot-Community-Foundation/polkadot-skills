@@ -7,7 +7,7 @@
     "name": "Polkadot Community Foundation",
     "url": "https://github.com/Polkadot-Community-Foundation"
   },
-  "homepage": "https://docs.polkadotcommunity.foundation",
+  "homepage": "https://polkadot.com",
   "repository": "https://github.com/Polkadot-Community-Foundation/polkadot-skills",
   "license": "Apache-2.0",
   "keywords": [
@@ -26,11 +26,10 @@
         "shortDescription": "Build apps on Polkadot",
         "developerName": "Polkadot Community Foundation",
         "category": "Developer Tools",
-        "websiteURL": "https://docs.polkadotcommunity.foundation",
+        "websiteURL": "https://polkadot.com",
         "composerIcon": "./assets/icon.png",
         "logo": "./assets/icon.png",
         "longDescription": "Polkadot Skills teaches your coding agent to build apps (\"products\") on Polkadot with the @parity/product-sdk TypeScript SDK. A product is a static web app with a .dot name. It runs inside the Polkadot app or the dot.li web gateway, which provide the wallet, signing, storage and chain access.\n\nAsk \"build me a Polkadot app\" and the app-builder skill scaffolds a project end to end. Ten more skills cover chain connection and queries, transactions and signers, PolkaVM and Solidity contracts on Asset Hub, Cloud Storage, the Statement Store, personhood and usernames, NFTs, Pocket cards, address and token utilities, and migrating an existing codebase.\n\nBuilt for developers making apps on Polkadot. Build and test on the Polkadot Products Devnet, the public sandbox: use the \"devnet\" environment, get test tokens from the Polkadot faucet and open your app at dev-dot.li. Guide: https://docs.polkadotcommunity.foundation/getting-started/developers/\n\nLimitations: the skills are instructions only. They contain no code or MCP server, and they do not deploy apps or hold keys. The SDK does not offer the Polkadot and Kusama mainnet environments yet. The skills are copied unchanged from Parity's product-sdk release tags.",
-        "supportURL": "https://github.com/Polkadot-Community-Foundation/polkadot-skills/issues",
         "privacyPolicyURL": "https://github.com/Polkadot-Community-Foundation/polkadot-skills/blob/main/PRIVACY.md",
         "defaultPrompt": [
           "Build me a Polkadot app that runs on the devnet",
