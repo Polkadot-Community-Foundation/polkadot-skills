@@ -12,5 +12,3 @@ machine, no server and no analytics.
   CLI or a plugin directory) may record installs under its own privacy policy.
 - **Apps you build.** Apps built with these skills run on Polkadot networks. What those apps collect is up
   to whoever builds and runs them.
-
-Questions: info@pcf.network
