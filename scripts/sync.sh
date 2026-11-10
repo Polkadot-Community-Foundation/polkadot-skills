@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# Mirror the agent skills from a paritytech/product-sdk release tag into skills/,
-# then stamp the release version and source into the manifests and README.
-# Only the skill folders listed in upstream.json are replaced; other folders in
-# skills/ are left alone.
+# Mirror the agent skills from a paritytech/product-sdk release tag into the
+# plugin's skills folder, then stamp the release version and source into the
+# manifests and README. Only the skill folders listed in upstream.json are
+# replaced; other skill folders are left alone.
 #
 # Usage: scripts/sync.sh [tag]   (default: newest @parity/product-sdk@X.Y.Z tag)
 set -euo pipefail
@@ -14,6 +14,9 @@ TAG_PREFIX="@parity/product-sdk@"
 
 root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$root"
+
+PLUGIN_DIR="plugins/polkadot-skills"
+SKILLS_DIR="${PLUGIN_DIR}/skills"
 
 tag="${1:-}"
 if [[ -z "$tag" ]]; then
@@ -45,18 +48,18 @@ if [[ -f upstream.json ]]; then
   mapfile -t old_skills < <(jq -r '.skills[]' upstream.json)
 fi
 
-mkdir -p skills
+mkdir -p "$SKILLS_DIR"
 for name in "${new_skills[@]}"; do
-  if [[ -e "skills/$name" ]] && ! printf '%s\n' "${old_skills[@]}" | grep -qx "$name"; then
-    echo "skills/$name exists and is not from upstream; refusing to overwrite it" >&2
+  if [[ -e "$SKILLS_DIR/$name" ]] && ! printf '%s\n' "${old_skills[@]}" | grep -qx "$name"; then
+    echo "$SKILLS_DIR/$name exists and is not from upstream; refusing to overwrite it" >&2
     exit 1
   fi
 done
 for name in "${old_skills[@]}"; do
-  rm -rf "skills/${name:?}"
+  rm -rf "${SKILLS_DIR:?}/${name:?}"
 done
 for name in "${new_skills[@]}"; do
-  cp -R "$src/$name" "skills/$name"
+  cp -R "$src/$name" "$SKILLS_DIR/$name"
 done
 
 jq -n --arg repo "$UPSTREAM_REPO" --arg tag "$tag" --arg commit "$commit" \
@@ -70,8 +73,8 @@ set_version() {
   jq --arg v "$version" "${path} = \$v" "$file" > "$tmp"
   mv "$tmp" "$file"
 }
-set_version plugin.json .version
-set_version .claude-plugin/plugin.json .version
+set_version "$PLUGIN_DIR/plugin.json" .version
+set_version "$PLUGIN_DIR/.claude-plugin/plugin.json" .version
 set_version .claude-plugin/marketplace.json '.plugins[0].version'
 
 # Regenerate the upstream skills list between the README markers.
@@ -81,7 +84,7 @@ list="$(mktemp)"
   echo "From [\`${tag}\`](https://github.com/${UPSTREAM_REPO}/tree/${commit}/${UPSTREAM_PATH}):"
   echo
   for name in "${new_skills[@]}"; do
-    echo "- [\`${name}\`](skills/${name}/SKILL.md)"
+    echo "- [\`${name}\`](${SKILLS_DIR}/${name}/SKILL.md)"
   done
   echo "<!-- skills:end -->"
 } > "$list"
