@@ -30,26 +30,29 @@ Step-by-step guide: [Get started as a developer](https://docs.polkadotcommunity.
 <!-- skills:start -->
 From [`@parity/product-sdk@0.44.0`](https://github.com/paritytech/product-sdk/tree/a182639326d884a7a2a6909817da5656383cc316/product-sdk/skills):
 
-- [`migrating-to-product-sdk`](skills/migrating-to-product-sdk/SKILL.md)
-- [`product-sdk-app-builder`](skills/product-sdk-app-builder/SKILL.md)
-- [`product-sdk-chain-connection`](skills/product-sdk-chain-connection/SKILL.md)
-- [`product-sdk-cloud-storage`](skills/product-sdk-cloud-storage/SKILL.md)
-- [`product-sdk-contracts`](skills/product-sdk-contracts/SKILL.md)
-- [`product-sdk-individuality`](skills/product-sdk-individuality/SKILL.md)
-- [`product-sdk-nfts`](skills/product-sdk-nfts/SKILL.md)
-- [`product-sdk-pocket-cards`](skills/product-sdk-pocket-cards/SKILL.md)
-- [`product-sdk-statement-store`](skills/product-sdk-statement-store/SKILL.md)
-- [`product-sdk-transactions`](skills/product-sdk-transactions/SKILL.md)
-- [`product-sdk-utilities`](skills/product-sdk-utilities/SKILL.md)
+- [`migrating-to-product-sdk`](plugins/polkadot-skills/skills/migrating-to-product-sdk/SKILL.md)
+- [`product-sdk-app-builder`](plugins/polkadot-skills/skills/product-sdk-app-builder/SKILL.md)
+- [`product-sdk-chain-connection`](plugins/polkadot-skills/skills/product-sdk-chain-connection/SKILL.md)
+- [`product-sdk-cloud-storage`](plugins/polkadot-skills/skills/product-sdk-cloud-storage/SKILL.md)
+- [`product-sdk-contracts`](plugins/polkadot-skills/skills/product-sdk-contracts/SKILL.md)
+- [`product-sdk-individuality`](plugins/polkadot-skills/skills/product-sdk-individuality/SKILL.md)
+- [`product-sdk-nfts`](plugins/polkadot-skills/skills/product-sdk-nfts/SKILL.md)
+- [`product-sdk-pocket-cards`](plugins/polkadot-skills/skills/product-sdk-pocket-cards/SKILL.md)
+- [`product-sdk-statement-store`](plugins/polkadot-skills/skills/product-sdk-statement-store/SKILL.md)
+- [`product-sdk-transactions`](plugins/polkadot-skills/skills/product-sdk-transactions/SKILL.md)
+- [`product-sdk-utilities`](plugins/polkadot-skills/skills/product-sdk-utilities/SKILL.md)
 <!-- skills:end -->
 
 ## Source and updates
 
 The product-sdk skills are written by Parity Technologies in
 [paritytech/product-sdk](https://github.com/paritytech/product-sdk) and copied here unchanged from its
-release tags. `upstream.json` records the tag, the commit and which folders in `skills/` come from
-upstream. A weekly workflow opens a pull request when a new release ships. To fix one of those skills,
-open an issue or pull request upstream.
+release tags. `upstream.json` records the tag, the commit and which folders in
+`plugins/polkadot-skills/skills/` come from upstream. A weekly workflow opens a pull request when a new
+release ships. To fix one of those skills, open an issue or pull request upstream.
+
+The plugin itself is `plugins/polkadot-skills/`: that folder is what agents install. The maintenance
+scripts (`scripts/`), workflows and `upstream.json` stay outside it.
 
 ## License
 
