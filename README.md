@@ -1,5 +1,7 @@
 # Polkadot Skills
 
+[![skills.sh](https://skills.sh/b/Polkadot-Community-Foundation/polkadot-skills)](https://skills.sh/Polkadot-Community-Foundation/polkadot-skills)
+
 Agent skills that teach your coding agent to build Polkadot apps with
 [`@parity/product-sdk`](https://github.com/paritytech/product-sdk). Ask it to "build me a Polkadot app"
 and it scaffolds one end to end. The other skills cover chain connection, transactions and signers,
